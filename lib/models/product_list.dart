@@ -19,7 +19,8 @@ class ProductList with ChangeNotifier {
     final newProduct = Product(
       id: Random().nextDouble().toString(),
       name: data['name'] as String,
-      descriptioas double,
+      description: data['description'] as String,
+      price: data['price'] as double,
       imageUrl: data['imageUrl'] as String,
     );
     addProduct(newProduct);
