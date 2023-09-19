@@ -19,7 +19,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _formData = <String, Object>{};
-
+  bool _isLoading = false;
   @override
   void initState() {
     super.initState();
@@ -77,12 +77,15 @@ class _ProductFormPageState extends State<ProductFormPage> {
 
     _formKey.currentState?.save();
 
+    setState(() => _isLoading = true);
+
     Provider.of<ProductList>(
       context,
       listen: false,
-    ).saveProduct(_formData);
-
-    Navigator.of(context).pop();
+    ).saveProduct(_formData).then((value) {
+      setState(() => _isLoading = false);
+      Navigator.of(context).pop();
+    });
   }
 
   @override
