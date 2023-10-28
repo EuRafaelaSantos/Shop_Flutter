@@ -39,13 +39,13 @@ class _AuthFormState extends State<AuthForm> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Ocorreu um erro'),
+        title: const Text('Ocorreo um Erro'),
         content: Text(msg),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Fechar'),
-          )
+            child: const Text('Fechar'),
+          ),
         ],
       ),
     );
